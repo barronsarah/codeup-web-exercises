@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register with Us</title>
+    <style>
+        body {
+            background-color: powderblue;
+        }
+        h3 {
+            font-size: x-large;
+            font-style: oblique;
+        }
+    </style>
+</head>
+<body>
+    <h1>Register With Us!</h1>
+    <section>
+    <h3>Login</h3>
+    <form method="POST" action="https://request-inspector.glitch.me/">
+        <p>
+            <label for="email">Email: </label>
+            <input id="email" name="email" type="text" placeholder="Enter your email here">
+        </p>
+        <p>
+            <label for="password">Password: </label>
+            <input id="password" name="password" type="password" placeholder="Enter password here">
+        </p>
+    </section>
+    <section>
+     <h3>Bio</h3>
+        <p>Tell us a little about yourself below!
+            <br>Ex: What's your favorite color, any pets, likes/dislikes.</p>
+        <p>
+            <textarea rows="6" cols="45" id="bio" name="bio" placeholder="Tell us a little about yourself!"></textarea>
+        </p>
+    </section>
+    <section>
+        <h3>How did you hear about us?</h3>
+        Select all that apply:
+        <p>
+        <label for="billboard">Billboard
+            <input id="billboard" type="checkbox" name="heardby" value="billboard">
+        </label>
+        <label for="radio">Radio Advertisement
+            <input id="radio" type="checkbox" name="heardby" value="radio">
+        </label>
+        <label for="internet">Internet Advertisement
+            <input id="internet" type="checkbox" name="heardby" value="internet">
+        </label>
+        <label for="other">Other
+            <input id="other" type="checkbox" name="heardby" value="other">
+        </label>
+        </p>
+    </section>
+    <section>
+        <p>
+         <h3><label for="browser">Which web browser are you using?</label></h3>
+            <p><select id= "browser" name="broswer[]">
+                <option value="IE">Internet Explorer</option>
+                <option value="chrome" selected>Google Chrome</option>
+                <option value="safari">Safari</option>
+                <option value="other">Other</option>
+            </select>
+        </p>
+    </section>
+    <p>
+        <button type="submit">Register Me!</button>
+    </p>
+    </form>
+
+</body>
+</html>
