@@ -24,16 +24,45 @@
             <label>
                 <input type="checkbox" id="condo" name="prop_type" value="condo">Condo</label>
             <label>
-                <input type="checkbox" id="rental" name="prop_type" value="rental">Rental</label>
+                <input type="checkbox" id="rental" name="prop_type" value="rental">For Rent Only</label>
+            <p>
+
+                <label for="sq_footage">What square footage are you looking for?</label>
+                <select id="sq_footage" name="sq_footage[]">
+                    <option value="four-eight">400-800 sq feet</option>
+                    <option value="eight-twelve" selected>800-1200 sq feet</option>
+                    <option value="twelve-sixteen">1200-1600 sq feet</option>
+                    <option value="over sixteen">I need all the space!</option>
+                </select>
+            </p>
+            <label for="min_price">Minimum price:</label>
+            <input id="min_price" name="min_price" type="text" placeholder="Minimum Price" required>
+            <br>
+            <label for="max_price">Maximum price:</label>
+            <input id="max_price" name="max_price" type="text" placeholder="Maximum Price">
             <br>
             <p>
-                Square footage:
+                <label for="zipcode">Zipcode you want to live in:</label>
+                <input id="zipcode" name="zipcode" type="text" required>
             </p>
-            <label for="sq_footage">What square footage are you looking for?</label>
-            <select id="sq_footage" name="sq_footage[]">
-                <option value="4-8">400-800 sq feet</option>
+            <br>
+            <p>
+                <label for="#beds">Number of bedrooms</label>
+                <select id="#beds" name="#beds[]">
+                    <option value="bed1-2">1-2</option>
+                    <option value="bed3">3</option>
+                    <option value="bed4">4</option>
+                    <option value="bed5_more">5 or more</option>
+                </select>
+            </p>
+            <br>
+            <label for="baths">Number of bathrooms</label>
+            <select id="baths" name="baths">
+                <option value="bath_1_1.5">1- 1.5 Bath</option>
+                <option value="bath_2">2 Bath</option>
+                <option value="bath_3">3 Bath</option>
+                <option value="bath_4">4 Bath</option>
             </select>
-            </label>
             <button type="submit">
                 Search Now!
             </button>
