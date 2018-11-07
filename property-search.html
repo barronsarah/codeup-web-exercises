@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Forms Practice!-PS</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1>
+        Property Search
+    </h1>
+    <form action="https://request-inspector.glitch.me"
+          method="POST">
+        <main>
+            <p>
+                Property type you are interested in:
+                <br>(Select all you that apply)
+            </p>
+            <label>
+                <input type="checkbox" id="house" name="prop_type" value="house">House</label>
+            <label>
+                <input type="checkbox" id="apt" name="prop_type" value="apt">Apartment</label>
+            <label>
+                <input type="checkbox" id="condo" name="prop_type" value="condo">Condo</label>
+            <label>
+                <input type="checkbox" id="rental" name="prop_type" value="rental">Rental</label>
+            <br>
+            <p>
+                Square footage:
+            </p>
+            <label for="sq_footage">What square footage are you looking for?</label>
+            <select id="sq_footage" name="sq_footage[]">
+                <option value="4-8">400-800 sq feet</option>
+            </select>
+            </label>
+            <button type="submit">
+                Search Now!
+            </button>
+        </main>
+    </form>
+</body>
+</html>
