@@ -1,0 +1,65 @@
+
+.header {
+    color: white;
+    background-position: center;
+    background-size: auto auto;
+    background-color: lightslategrey;
+}
+hr{
+    margin-bottom: 0px;
+
+}
+h1{
+    text-align: center;
+    font-size: 42px;
+}
+
+h3{
+    font-size: 22px;
+    color: darkblue;
+    text-decoration: underline;
+
+}
+
+h3:hover {
+    text-decoration: underline;
+    color: goldenrod;
+}
+
+html, body {
+    font-size: 16px;
+    font-align: center;
+
+    height: 100%;
+    font-family: 'Amatic SC', "Times New Roman", sans-serif;
+
+}
+.background {
+    background-size: cover;
+    background-image: url("../images/grass.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: powderblue;
+}
+
+header h1, p {
+    margin: 1px;
+}
+
+li{
+    list-style-type: none;
+}
+table, th, td {
+    font-size: 25px;
+    padding: 15px;
+    box-shadow: lightslategrey;
+}
+a:link {
+    color: blue;
+}
+a:visited {
+    color: red;
+}
+a:hover {
+    color: deeppink;
+}
