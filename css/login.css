@@ -1,6 +1,8 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
+    /*!Can input this to apply box sizing to buttons to entire form by entering: "box-sizing: border-box;" to avoid using the calc function under .form-control*/
 }
 
 body, html {
@@ -48,10 +50,11 @@ fieldset {
     /* You'll need to use the `calc` function to make the width of this element match the width of the button */
     /* See the example at: https://developer.mozilla.org/en-US/docs/Web/CSS/calc */
     /* HINT: Calculate based on the padding of the `.btn` class */
-    width: calc(100% - 8px);
+    /*width: --can use: calc(100% - 4px);*/
 }
 
 .btn {
+    /*buttons have a border-box by default*/
     padding: 8px;/* There must be a separation of 8px between the text and the border of this element */
     color: white bold;/* The text color of this element should be white and bold */
     border-color: lightgrey;
