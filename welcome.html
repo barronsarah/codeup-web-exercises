@@ -2,52 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <style>
-
-        h1{
-            text-align: center;
-            font-size: 55px;
-        }
-
-        h3{
-            font-size: 32px;
-            color: darkblue;
-            text-decoration: underline;
-
-        }
-
-        body {
-            font-size: 22px;
-            background-img: url(../images/water_bg.jpeg);
-            font-family: 'Amatic SC', "Times New Roman";
-            background-color: aliceblue;
-        }
-        li{
-           list-style-type: square;
-        }
-        table, th, td {
-            font-size: 25px;
-            padding: 15px;
-        }
-        a:link {
-            color: blue;
-        }
-        a:visited {
-            color: red;
-        }
-        a:hover {
-            color: deeppink;
-        }
-    </style>
+    <link rel="stylesheet" href="css/welcome.css">
     <title>Veridian Dynamics!</title>
 </head>
 <body>
-    <header>
-    <h1 id="top">Welcome to Veridian Dynamics!</h1>
+    <header class="header">
+    <h1 id="top" >Welcome to Veridian Dynamics!</h1>
     <p>At Veridian Dynamics, <strong>we</strong> solve <em>your</em> problems with <strong><em>technology</em></strong>.</p>
     </header>
     <hr>
-    <main>
+    <main class="background">
+        <section class="vision">
     <h3>Core Values</h3>
         <uo>
             <li>Competence</li>
@@ -68,9 +33,9 @@
         </ul>
     <hr>
     <h3>Company Vision</h3>
-        <table>
+        <table class="table_imgs">
             <tr>
-                <td><img src="images/computer.jpeg" width="400" height="350"></td>
+                <td id="img"><img src="images/computer.jpeg" width="400" height="350"></td>
                 <td><img src="images/sunrise.jpeg" width="400" height="350"></td>
             </tr>
         <tr>
