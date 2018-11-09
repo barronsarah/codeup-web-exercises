@@ -29,7 +29,7 @@ a {
     background: var(--light-bg);
     position: fixed;
     width: 100%;
-    z-index: 2;
+    z-index: 1000;
 }
 .nav {
     list-style-type: none;
@@ -62,7 +62,7 @@ a {
 }
 .profile-details{
     margin: 0 0.5em;
-    width: 25%;
+    width: calc(25% - 1em);
     float: left;
 }
 .profile-items {
@@ -74,23 +74,23 @@ a {
 .profile-entry {
     margin: .5em;
 }
-timeline{
-    width: 50%;
+.timeline{
+    width: calc(50% - 1em);
     margin: 0 .5em;
     float: left;
 }
 .who-to-follow{
-    width: 25%;
+    width: calc(25% - 1em);
     margin: 0 .5em;
     float: right;
 }
 .container {
-    margin:2em;
+    margin: 2em;
 }
 .media {
     width: 100%;
     padding: .5em;
-    background-color: var(light-bg);
+    background-color: var(--light-bg);
     border-bottom: 1px;
     border-color: var(--separator-color);
     overflow-y: auto;
@@ -101,8 +101,8 @@ timeline{
     float: left;
 }
 .media-body {
-    float: left;
-    width: 100%;
+    float: right;
+    width: calc(100% - 50px);
 }
 .btn {
     border: 1px solid var(--main-link-color);
