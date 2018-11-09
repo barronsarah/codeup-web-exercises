@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+}
+@media screen and (min-width: 50em) {
+    .alert-info {
+        display: none;
+    }
+}
+.alert-info {
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
+    background-color: lightskyblue;
+    width: 100%;
+    padding: 10px 50px;
+    margin: .5em;
+    }
+
+nav {
+    list-style-type: none;
+    padding: 1em;
+    margin: 1 em;
+    float: right;
+
+}
+.nav-links {
+    color: blue;
+    text-decoration: underline;
+    list-style-type: none;
+
+}
+li {
+display: inline-block;
+}
+
+h1 {
+    line-height: 2em;
+    float: left;
+}
+.header-img {
+
+}
