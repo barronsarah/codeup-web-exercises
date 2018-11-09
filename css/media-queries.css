@@ -1,7 +1,11 @@
 * {
     box-sizing: border-box;
 }
-
+/*adding margin to top/bottom and sides will pull content off of
+the page and give space to edges of content*/
+body {
+    margin: 1% 2%;
+}
 @media screen and (min-width: 992px) {
     .alert-info {
         display: none;
@@ -30,7 +34,7 @@
     }
 
     h1 {
-        text: sans-serif;
+        font-family: sans-serif;
         line-height: 3em;
         float: left;
         margin: 0;
@@ -52,10 +56,14 @@
     }
 
     .sub-section {
+        font-style: oblique;
         float: right;
         width: calc(30% - 2em);
         margin-left: 1em;
         margin-right: .5em;
+    }
+    .main h2 {
+        font-family: Damascus, sans-serif;
     }
 
     footer {
@@ -94,21 +102,17 @@
     padding-left: 0px;
 }
 
-.header-img {
+img {
     margin: auto;
     padding: 0;
-    width: 90%;
+    width:100%;
     text-align: center;
 }
 
 h1 {
-    font-family: sans-serif;
+    font-size: 3em;
     text-align: center;
     margin: 0;
-}
-
-.main h2 {
-    font-family: Damascus, sans-serif;
 }
 
 .sub-section {
