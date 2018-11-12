@@ -2,7 +2,7 @@
 
     .container {
         margin: 0 auto;
-        width: 100%;
+        width: 95%;
         max-width: 1200px;
     }
 
@@ -47,10 +47,6 @@
 
     .column.three-eighth {
         width: 36%;
-    }
-
-    .offset-two-third {
-        margin: 1em;
     }
 }
 .row {
