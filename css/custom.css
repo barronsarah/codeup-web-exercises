@@ -10,6 +10,12 @@ h1 {
     color: rgba(68, 68, 68, 0.63);
     background-color: rgba(248, 248, 255, 0.51);
 }
-.btn-primary {
+.btn {
+    float: right;
+}
+.panel-background {
+    background-color: #007bff;
+}
+.btn-group {
     float: right;
 }

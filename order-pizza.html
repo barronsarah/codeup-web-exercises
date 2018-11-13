@@ -50,14 +50,13 @@
              </ul>
         </div>
 
-
-
+        <!--first panel start-->
         <div class="card">
-            <div class="card-header">
+            <div class="card-header text-white panel-background">
                 Choose size and crust
             </div>
             <div class="card-body">
-                <!--card body below-->
+                <!--first card body below-->
                 <div class="card">
                     <div class="card-header">
                         Hand Tossed
@@ -70,7 +69,7 @@
                         </ul>
                     </div>
                 </div>
-                <!--another card body-->
+                <!--another first card body-->
                 <div class="card">
                     <div class="card-header">
                         Crispy Thin
@@ -81,17 +80,127 @@
                             <li class="list-group-item"><input type="radio" aria-label="Radio button for following text input"> Medium (12")</li>
                             <li class="list-group-item"><input type="radio" aria-label="Radio button for following text input"> Large (14")</li>
                         </ul>
-
                     </div>
                 </div>
-                <!--start of main card footer-->
             </div>
+            <!--start of first card footer-->
             <div class="card-footer text-muted">
                 <a href="#" class="btn btn-primary">Next step > </a>
             </div>
         </div>
+    <!--start of second panel-->
+        <div class="card">
+            <div class="card-header text-white panel-background">Choose Cheese and Sauce</div>
+            <div class="card-body">
+                <!--second card-body-->
+                <div class="card">
+                    <div class="card-header">
+                        Cheese
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="FormControlSelect1 cheese_option">How Much?</label>
+                            <select class="form-control" id="FormControlSelect1 cheese_option">
+                                <option>Light</option>
+                                <option>Normal</option>
+                                <option>Extra</option>
+                                <option>Double</option>
+                            </select>
+                        </div>
+                    </div>
+                <!--another second card body-->
+                <div class="card">
+                    <div class="card-header">
+                        Sauce
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">What Type?</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Tomato Sauce</option>
+                                <option>Marinara Sauce</option>
+                                <option>BBQ Sauce</option>
+                                <option>Alfredo Sauce</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="FormControlSelect1 sauce_howmuch">How Much?</label>
+                            <select class="form-control" id="FormControlSelect1 sauce_howmuch">
+                                <option>Light</option>
+                                <option>Normal</option>
+                                <option>Extra</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <!--start of second card footer-->
+                <div class="card-footer text-muted">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-primary"> < Previous Step</button>
+                        <button type="button" class="btn btn-primary">Next Step > </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!--start of third panel-->
+    <div class="card-header text-white panel-background">
+        Choose Toppings
+    </div>
+    <div class="card-body">
+        <!--third panel first card-->
+        <div class="card">
+            <div class="card-header">
+                Choose Meats
+            </div>
+            <div class="card-body">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="meatCheck1">
+                    <label class="custom-control-label" for="meatCheck1">Beef</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="meatCheck2">
+                    <label class="custom-control-label" for="meatCheck1">Ham</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="meatCheck3">
+                    <label class="custom-control-label" for="meatCheck1">Philly Steak</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="meatCheck4">
+                    <label class="custom-control-label" for="meatCheck1">Bacon</label>
+                </div>
+            </div>
+            <!--second card in third panel-->
+            <div class="card">
+                <div class="card-header">
+                    Choose Non-Meats
+                </div>
+                <div class="card-body">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="nomeatCheck1">
+                        <label class="custom-control-label" for="nomeatCheck1">Green Peppers</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="nomeatCheck2">
+                        <label class="custom-control-label" for="nomeatCheck1">Mushrooms</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="nomeatCheck3">
+                        <label class="custom-control-label" for="nomeatCheck1">Onions</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="nomeatCheck4">
+                        <label class="custom-control-label" for="nomeatCheck1">Jalepeno Peppers</label>
+                    </div>
+                </div>
 
-
-
+        </div>
+        </div>
+    </div>
+    <!--thrid panel footer-->
+    <div class="card-footer text-muted">
+        <p><a href="#" class="btn btn-primary"> Checkout > </a></p>
+    </div>
 </body>
 </html>
