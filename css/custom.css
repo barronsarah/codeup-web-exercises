@@ -1,16 +1,15 @@
-* container {
+
+* {
     box-sizing: border-box;
-    width: 100%;
 }
 .jumbotron {
     background-image: url("../images/pizza.png");
     }
 h1 {
-
+    text-align: center;
+    color: rgba(68, 68, 68, 0.63);
+    background-color: rgba(248, 248, 255, 0.51);
 }
-
-@media screen and (max-width:){
-    .d-sm-none .d-md-block {
-        display: none;
-    }
+.btn-primary {
+    float: right;
 }
