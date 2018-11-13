@@ -2,9 +2,13 @@
 * {
     box-sizing: border-box;
 }
+
 .jumbotron {
     background-image: url("../images/pizza.png");
     }
+.page-nav {
+    margin-top: .5em;
+}
 h1 {
     text-align: center;
     color: rgba(68, 68, 68, 0.63);
@@ -14,8 +18,17 @@ h1 {
     float: right;
 }
 .panel-background {
-    background-color: #007bff;
+    color: darkblue;
+    background-color: rgba(135, 206, 250, 0.56);
 }
 .btn-group {
     float: right;
 }
+.badge-pill {
+    border-radius: 8px;
+    padding: 4px;
+}
+.list-group-item{
+    background-color: rgba(135, 206, 250, 0.56);
+}
+
