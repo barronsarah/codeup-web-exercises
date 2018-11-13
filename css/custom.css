@@ -31,4 +31,7 @@ h1 {
 .list-group-item{
     background-color: rgba(135, 206, 250, 0.56);
 }
-
+.signup{
+    float: right;
+    margin-right: 0 auto;
+}
