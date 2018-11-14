@@ -14,15 +14,12 @@ h1 {
     color: rgba(68, 68, 68, 0.63);
     background-color: rgba(248, 248, 255, 0.51);
 }
-.btn {
+.btn, .btn-group {
     float: right;
 }
 .panel-background {
     color: darkblue;
     background-color: rgba(135, 206, 250, 0.56);
-}
-.btn-group {
-    float: right;
 }
 .badge-pill {
     border-radius: 8px;
