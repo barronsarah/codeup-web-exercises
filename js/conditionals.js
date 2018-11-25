@@ -159,25 +159,25 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
 
 function calculateTotal() {
     switch(luckyNumber) {
-        case "0":
+        case luckyNumber = "0":
             return (total);
         case "1":
             var finalTotal = total - (total * .10);
             return finalTotal;
 
-        case "2":
+        case luckyNumber = "2":
              var finalTotal = total - (total * .25);
             return finalTotal;
 
-        case "3":
+        case luckyNumber = "3":
             var finalTotal = total - (total * .35);
             return finalTotal;
 
-        case "4":
+        case luckyNumber = "4":
             var finalTotal = total - (total * .5);
             return finalTotal;
 
-        case "5":
+        case luckyNumber = "5":
             var finalTotal = total - total;
             return finalTotal;
     }
