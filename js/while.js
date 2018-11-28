@@ -14,11 +14,16 @@ while(i < 60000){
 //     i++;
 // } while (i < 10);
 
+// different way of writing function:
+// var iceCream = function(){
+//
+// }
+
 var allCones = Math.floor(Math.random() * 50) + 50;
 
 do{
     var conesSold = Math.floor(Math.random() * 5) + 1;
-    console.log(conesSold + " cones sold");
+    console.log(conesSold + " cones sold...");
     var totalCones = allCones - conesSold;
     console.log(totalCones);
     allCones = allCones - conesSold;
@@ -26,4 +31,5 @@ do{
         console.log('I only have ' + allCones + ' cones left. I don\'t have enough cones to sell you ' + conesSold + ' cones.');
         break;
     }
-} while(allCones > 0);
+} while(allCones > 0)
+    console.log("Sold them all!");
