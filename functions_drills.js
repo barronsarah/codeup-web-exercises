@@ -34,8 +34,31 @@ function multipleOfThree(number) {
     return multiThree;
 }
 function isMultipleOfThreeandFive(number){
-    console.log(multipleOfThree());
-    console.log(isMultipleOfFive());
+    return multipleOfThree(), isMultipleOfFive();
+    }
+function isMultipleOf(number, n){
+    if(parseInt(number) % parseInt(n) === 0){
+        return true;
+    } else false;
+}
+/// isVowel function comes before this
+function isVowel(input){
+    var vletter = input.toString().toLowerCase();
+    if(vletter === "a" || "e" || "i" || "o" || "u"){
+        return true
+    } else {
+        return false
+    }
+}
+
+
+function isCapital(input){
+    if(input.typeof() = "string"){
+        return input.toUpperCase();
+    } else{
+        return "This is not a string";
+    }
+
 }
 
 
@@ -48,12 +71,14 @@ function sayHowdy(){
     console.log("Howdy!");
 }
 function returnName(){
-    var name = "Sarah"
+    var name = "Sarah";
     return name;
 }
 function sayString(){
-    return input.toString;
+    return input.toString();
 }
+
+
 
 
 // the plus one at the end tells the function to INCLUDE the max number
