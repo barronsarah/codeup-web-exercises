@@ -32,34 +32,34 @@
 //
 // FOR LOOP EXERCISE 4:
 
-// for(var i = 1; i < 10; i++) {
-//     console.log(String(i).repeat(i))
-// }
+for(var i = 1; i < 10; i++) {
+    console.log(String(i).repeat(i))
+}
 // WALKTHROUGH ANSWER:
-function numberTree(){
-    for(var i = 1; i < 10; i++){
-        var it = '';
-        for(var j=0; j<i; j++){
-            it = it + j;
-        }
-        console.log(it);
-    }
-}
-numberTree();
+// function numberTree(){
+//     for(var i = 1; i < 10; i++){
+//         var it = '';
+//         for(var j=0; j<i; j++){
+//             it = it + j;
+//         }
+//         console.log(it);
+//     }
+// }
+// numberTree();
 
 
 
-for (var i = 100; i > 4; i -=5){
-    console.log(i);
-}
-
-// WALKTHOUGH ANSWER:
-
-var countBackwardsByFives = function(){
-    for(var i=100;i>=5;i-=5){
-        console.log(i)
-    }
-}
-
-countBackwardsByFives();
-
+// for (var i = 100; i > 4; i -=5){
+//     console.log(i);
+// }
+//
+// // WALKTHOUGH ANSWER:
+//
+// var countBackwardsByFives = function(){
+//     for(var i=100;i>=5;i-=5){
+//         console.log(i)
+//     }
+// }
+//
+// countBackwardsByFives();
+//
