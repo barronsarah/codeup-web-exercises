@@ -38,4 +38,16 @@
 
     console.log(list(planetsArray));
 
+    // WALKTHROUGH ANSWER:
+ var htmlString= "<ul><li>";
+
+ htmlString += planetsArray.join("</li><li>");
+
+ htmlString += "</li></ul>";
+
+ // or!!
+    var htmlString= "<ul><li>" + planetsArray.join("</li><li>") + "</li></ul>";
+
+ document.body.innerHTML += htmlString;
+
 })();
