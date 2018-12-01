@@ -31,17 +31,19 @@ function numEmployees (array){
     var finalNum = 0;
     array.forEach(function(element){
         finalNum = array.length - 7;
-    })
+    });
     return finalNum;
 }
-
+var numOfEmployees = numEmployees(fileArray);
 console.log(fileArray);
-console.log("Number of employees: " + numEmployees(fileArray));
+
+console.log("Number of employees: " + numOfEmployees);
 
 //---ALL MY WORK-----//
 
 function empArray(array){
     var newArray= array.slice(7);
+    //--below did not work---
     // var newArray = [];
     // for(var i = 0; i < array.length; i++){
     //     newArray += array[i + 7].slice();
@@ -59,7 +61,7 @@ for (var i =0; i < empsOnlyArray.length; i++){
 console.log(empSplitArray);
 
 
-// var totalUnitsSold = 0;
+// ---------------total number of units sold----------------
 
 
 // var totalUnitsSold = 0;
@@ -67,17 +69,25 @@ console.log(empSplitArray);
 //     var toNumber = parseFloat([3]);
 //     totalUnitsSold += empSplitArray[i[toNumber]];
 // }
-var total = 0;
-function totalUnitsSold(array){
 
-    array.forEach(function(element){
-        total = total + array[3];
-    });
-    return total;
+var unitsSold = 0;
+
+empSplitArray.forEach(function(element){
+    unitsSold += parseFloat(element[3]);
+});
+
+console.log(unitsSold);
+
+//--------------- avg units sold per employee -----------------
+
+console.log("Average units sold is: " + (unitsSold/numOfEmployees));
+
+//--------employee production, listed highest to lowest ----------
+
+function sortHighest(a,b){
+    return b[3]- a[3];
 }
-
-console.log("Total number of units sold: " + totalUnitsSold(empSplitArray));
-
+console.log(empSplitArray.sort(sortHighest));
 
 
 
