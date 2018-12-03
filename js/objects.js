@@ -1,4 +1,4 @@
-(function() {
+
     "use strict";
 
     /**
@@ -12,9 +12,11 @@
      *  > console.log(person.lastName) // "Sanchez"
      */
     var person = {
+        // key: value ---> keys do not need to be entered as strings; JS already converts
+        // keys to strings so quotes are optional
         "firstName": "Sarah",
         "lastName": "Barron"
-    }
+    };
     console.log(person.firstName);
 
     /**
@@ -105,39 +107,81 @@ console.log(person.sayHello());
      * > console.log(books[0].author.lastName) // "Adams"
      */
 var books = [
-        {   title: "Girl Wash Your Face",
+        {   id:1,
+            title: "Girl Wash Your Face",
             author: {
                 firstName: "Rachel",
                 lastName: "Hollis"
-            }
+            },
+            available: true,
+            keywords: [
+                "Motivational",
+                "Self Help",
+                "Christian Literature"
+                ]
         },
         {
+            id:2,
             title: "To Kill a Mockingbird",
             author: {
                 firstName: "Harper",
                 lastName: "Lee"
-            }
+            },
+            available: true,
+            keywords: [
+                "Drama",
+                "Coming Of Age",
+                "Novel",
+                "Fiction"
+                ]
         },
         {
+            id: 3,
             title: "Harry Potter",
             author: {
                 firstName: "J K",
                 lastName: "Rowling"
-            }
+            },
+            available: true,
+            keywords: [
+                "Fiction",
+                "Novel",
+                "Young Adult Fiction",
+                "Fantasy Fiction",
+                "Mystery",
+                "Thriller"
+                ]
         },
         {
+            id: 4,
             title: "The Great Gatsby",
             author: {
                 firstName: "F Scott",
                 lastName: "Fitzgerald"
-            }
+            },
+            available: true,
+            keywords: [
+                "Fiction",
+                "Drama",
+                "Thriller",
+                "Historical Fiction",
+                "Period Novel"
+                ]
         },
         {
+            id:5,
             title: "Gone with the Wind",
             author: {
                 firstName: "Margaret",
                 lastName: "Mitchell"
-            }
+            },
+            available: true,
+            keywords: [
+                "Drama",
+                "Novel",
+                "Historical Fiction",
+                "Period Novel"
+                ]
         }
     ];
     /**
@@ -164,12 +208,12 @@ var books = [
      *      ---
      *      ...
      */
-books.forEach(function(book, index){
-    console.log("Book # " + [index +1]);
-    console.log("Title: " + book.title);
-    console.log("Author: " + book.author.firstName + book.author.lastName);
-    console.log("---");
-    });
+// books.forEach(function(book, index){
+//     console.log("Book # " + [index +1]);
+//     console.log("Title: " + book.title);
+//     console.log("Author: " + book.author.firstName + book.author.lastName);
+//     console.log("---");
+//     });
 
     /**
      * Bonus:
@@ -181,5 +225,50 @@ books.forEach(function(book, index){
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+books.createBook = function(bookTitle, authorFirstName, authorLastName){
+    return books.push({title: bookTitle, author: {firstName: authorFirstName, lastName: authorLastName}})
+};
 
-})();
+// console.log(books.createBook("Girl Wash Your Face","Rachel","Hollis"));
+// console.log(books.createBook("To Kill A Mockingbird", "Harper", "Lee"));
+// console.log(books.createBook("Harry Potter", "JK", "Rowling"));
+// console.log(books.createBook("The Great Gatsby", "F Scott", "Fitzgerald"));
+// console.log(books.createBook("Gone with the Wind", "Margaret", "Mitchell"));
+
+var showBookInfo = function(books){
+    for(var i = 0; i < books.length; i++) {
+        // books.forEach(function(book){
+        //     console.log("Title: " + book.title + ". Author: " + book.author.firstName + " " + book.author.lastName);
+        // })
+        console.log("Book # "+ [i+ 1] + ". Title: " + books[i].title + ". Author: " + books[i].author.firstName + " " + books[i].author.lastName);
+    }
+};
+
+showBookInfo(books);
+
+    // BONUS 2 (expanding on the books object exercise):
+    //     Add a property "keywords" that contains an array of possible genres the book may be categorized by
+    //     Add a boolean property "available" and set it to true
+    //     Add a dateAvailable property that has a string of the date/time when the book will be available
+    //     Add a method lend() that...
+    //         - changes the available property to false if it is not already false
+    //         - sets the dateAvailable to a date exactly two weeks from when the lend() method is called
+    //         (to do this, research the JS Date object and use methods from it in your code)
+    //     Add a method receive() that...
+    //         - changes the available property to true
+    //         - changes the dateAvailable property to the string "now"
+
+
+books.dateAvailable = "December 15 2018, 1pm";
+books.lend = function(index){
+    if(books[index].available === true){
+        var twoWeek = (books[index].date.available = new Date(Date.now() + 12096e5));
+        var available = (books[index].available = false);
+        return [twoWeek, available];
+    }
+};
+books.receive = function(index){
+    var available = (books[index].available = true);
+    var dateAvail = (books[index].available = "now");
+    return [available, dateAvail];
+};
