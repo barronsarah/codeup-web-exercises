@@ -115,7 +115,7 @@
 
 var jackBox = {
     triggered: false,
-    intervalId: null,
+    intervalId: 1000,
 
     windUp: function(){
         //stop play method
@@ -142,7 +142,7 @@ var jackBox = {
     play: function () {
         var i = 0;
         do{
-            setInterval((console.log(jackBox.lyrics[i])), 10000);
+            console.log(jackBox.lyrics[i]);
             i++
         } while (i < jackBox.lyrics.length);
 
