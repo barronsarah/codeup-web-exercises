@@ -18,7 +18,7 @@
     // TODO: This function needs to be called once every second
 
     var interval = 1000;
-  var timer= setInterval(function updateTimer() {
+    var timer = setInterval(function updateTimer() {
         if (detonationTimer == 0) {
             alert('EXTERMINATE!');
             document.body.innerHTML = '';
@@ -28,7 +28,11 @@
 
         detonationTimer--;
     }, interval);
-
+//- WALKTHROUGH ANSWER: -------
+//
+//   var intervalID = setInterval(function(){
+//     updateTimer();
+// }, 1000);
 
 
 
