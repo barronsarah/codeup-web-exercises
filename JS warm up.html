@@ -18,8 +18,12 @@
         return Math.min.apply(null, array);
     }
 
-    function sumAllNumbers(accumulator, currentValue, currentIndex, array){
-       return total += value;
+    function sumAllNumbers(array){
+        total = 0;
+        array.forEach(function(number){
+        total += number
+        })
+        return total
     }
 
 
