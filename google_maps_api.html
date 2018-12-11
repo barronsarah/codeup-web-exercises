@@ -15,54 +15,87 @@
     <!-- Load the Google Maps API [DON'T FORGET TO USE A KEY] -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGUvFLzHTLNNvsJKYQofXpE5-R7ixdIeQ"></script>
 
-    1. Generate a map that shows the city with your favorite restaurant using geocoding.
-    2. Redraw the map of the above location at zoom levels 5, 15, and 20.
-    3. Create a marker on your map of the exact location of your favorite restaurant and adjust the zoom to allow for best viewing distance.
-    4. Create an info window with the name of the restaurant.
-    5. Zoom in and verify that you have identified the correct location.
+    <input id ="searchAddress" type="text" placeholder="Enter a new address"><button id=searchBtn type="submit">Search</button>
+
+    <p>1. Generate a map that shows the city with your favorite restaurant using geocoding.</p>
+    <p>2. Redraw the map of the above location at zoom levels 5, 15, and 20.</p>
+    <p>3. Create a marker on your map of the exact location of your favorite restaurant and adjust the zoom to allow for best viewing distance.</p>
+    <p>4. Create an info window with the name of the restaurant.</p>
+    <p>5. Zoom in and verify that you have identified the correct location.</p>
 
     <!-- Script to show address on map -->
     <script type="text/javascript">
         (function() {
             "use strict";
 
-            // Set our map options
-            var mapOptions = {
-                // Set the zoom level
-                zoom: 18,
-
-                // This sets the center of the map at our location
-                center: {
-                    lat:  29.368290,
-                    lng: -98.481844
-                }
-            };
-            // Include code from previous example
-
-// Set our address to geocode
-            var restaurantAddress = "3119 Roosevelt Ave, San Antonio, TX, 78214";
-
 // Init geocoder object
             var geocoder = new google.maps.Geocoder();
 
-// Geocode our address
-            geocoder.geocode({ "address": restaurantAddress }, function(results, status) {
+            var address = { lat:  29.368290,
+                lng: -98.481844};
 
-                // Check for a successful result
-                if (status === google.maps.GeocoderStatus.OK) {
-                    console.log(results);
+// Set our map options
+            var mapOptions = {
+                // Set the zoom level
+                zoom: 19,
 
-                    // Recenter the map over the address
-                    map.setCenter(results[0].geometry.location);
-                } else {
+                // This sets the center of the map at our location
+                center: address,
 
-                    // Show an error message with the status if our request fails
-                    alert("Geocoding was not successful - STATUS: " + status);
-                }
+                mapTypeID: 'satellite'
+            };
+
+            // var infowindow = new google.maps.InfoWindow({
+            //     content: 'Sarah\'s favorite restuarant'
+            // });
+
+// Set our address to geocode
+//             var restaurantAddress = "3119 Roosevelt Ave, San Antonio, TX, 78214";
+//
+// --creating a lat/long variable for the restaurant to use in marker:
+//             var nichas = new google.maps.LatLng(29.365830, -98.481742);
+//             var marker = new google.maps.Marker({
+//                 position: nichas,
+//                 map: map
+//             });
+
+ // Render the map
+            var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+            var searchedAddress = document.getElementById('searchAddress').value;
+            var marker = new google.mapsMarker({
+                position: searchedAddress,
+                map: map
             });
 
-            // Render the map
-            var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+            var newAddress = function(){
+                var newAddress = document.getElementById('searchAddress').value;
+                console.log(newAddress);
+                // Geocode our address
+                geocoder.geocode({ "address": newAddress }, function(results, status) {
+                    // Check for a successful result
+                    if (status == google.maps.GeocoderStatus.OK) {
+
+                        // Recenter the map over the address
+                        map.setCenter(results[0].geometry.location);
+                    } else {
+
+                        // Show an error message with the status if our request fails
+                        alert("Geocoding was not successful - STATUS: " + status);
+                    }
+                });
+
+            };
+//
+            var search = document.getElementById('searchBtn');
+
+            search.addEventListener('click', newAddress);
+
+
+            marker.setMap(map);
+            //
+            // infowindow.open(map, marker);
+            //
         })();
     </script>
 </body>
+

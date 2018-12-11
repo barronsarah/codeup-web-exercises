@@ -2,9 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>JQUERY INTRO</title>
 </head>
 <body>
-    
+
+    <h1>Example Page</h1>
+    <div class="important">
+        <h3>NOTICE</h3>
+        <p id="message">This is an important message!</p>
+    </div>
+    <div class="codeup">
+        <h2>Lorem Ipsum</h2>
+        <p>Lorem ipsum dolor sit amet, incididunt ut <span class="important">labore et dolore magna aliqua.</span>, quis ut aliquip ex ea commodo.</p>
+    </div>
+    <p class="codeup">This is also very important.</p>
+    <p id="myMessage">Another paragraph message!</p>
+    <p>
+        <li>one</li>
+        <li>two</li>
+        <li>three</li>
+        <li>four</li>
+    </p>
+    <p class='codeup'>HAPPY CODING!!</p>
+
+    <script src="js/jquery-2.2.4.js"></script>
+   <script>
+       "use strict";
+       //--- INTRO EXERCISE!! ---
+       $(document).ready(function(){
+
+        // $('.codeup').css('border','1px solid red')
+
+        $('li').css('font-size', '20px');
+
+        $('h1, p, li').css('background-color', 'blue');
+
+        var header= $('h1').html();
+        alert(header);
+
+       });
+
+
+
+   </script>
 </body>
 </html>
