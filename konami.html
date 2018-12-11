@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+    <h1>Konami Code</h1>
+
+    <script src="js/jquery-2.2.4.js"></script>
+    <script src="http://code.onion.com/fartscroll.js"></script>
+    <script>
+        "use strict";
+        $(document).ready(function(){
+
+        $(document).keyup(function(event){
+            console.log(event.keyCode);
+
+            var konami='';
+            var key = '38384040373937396665';
+
+            $(document).keyup(function(e){
+                konami += ('' + e.keyCode);
+                if(konami === key){
+                    fartscroll(1000);
+                }
+            })
+
+            })
+        });
+    </script>
+</body>
+</html>
