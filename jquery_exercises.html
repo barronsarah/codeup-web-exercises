@@ -31,18 +31,42 @@
        //--- INTRO EXERCISE!! ---
        $(document).ready(function(){
 
+// -----------INTRO JQUERY SELECTOR EXERCISE --------------
         // $('.codeup').css('border','1px solid red')
+        //
+        // $('li').css('font-size', '20px');
+        //
+        // $('h1, p, li').css('background-color', 'blue');
+        //
+        // var header= $('h1').html();
+        // alert(header);
 
-        $('li').css('font-size', '20px');
+// ---------- JQUERY MOUSE EVENTS EXERCISE ------------------
+    //-- this highlights the h1 when clicked --
+        $('h1').click(function(){
+            $(this).css('background-color', 'pink')
+        });
 
-        $('h1, p, li').css('background-color', 'blue');
+    //-- this changes font size on ALL p tags when one is double clicked --
+        $('p').dblclick(function(){
+            $('p').css('font-size', '18px')
+        });
 
-        var header= $('h1').html();
-        alert(header);
+    //-- changes text color to red when mouse hovers over li tags; changes text color back to black when not hovering over li's ---
+
+        $('li').hover(
+            function(){
+                $(this).css('color', 'red');
+                $(this).css('border', 'solid yellow 2px');
+            },
+            function(){
+                $(this).css('color', '');
+                $(this).css('border', '');
+            }
+        );
+
 
        });
-
-
 
    </script>
 </body>
