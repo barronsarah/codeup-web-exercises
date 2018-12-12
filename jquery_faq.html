@@ -35,7 +35,32 @@
         <dd class="invisible">The National Park Service was created by an act signed by President Woodrow Wilson on August 25, 1916. Yellowstone National Park was established by an act signed by President Ulysses S. Grant on March 1, 1872, as the nation's first national park. View the National Park System timeline.
         </dd>
     </dl>
-
+    <h3 id="national-parks-heading">National Parks</h3>
+    <ul id="national-parks">
+        <li>Arches</li>
+        <li>Badlands</li>
+        <li>Carlsbad Caverns</li>
+        <li>Denali</li>
+        <li>Everglades</li>
+    </ul>
+    <h3>State Parks of Texas</h3>
+    <ul id="state-parks-texas">
+        <li>Abilene</li>
+        <li>Big Bend</li>
+        <li>Choke Canyon</li>
+        <li>Davis Mountains</li>
+        <li>Enchanted Rock</li>
+    </ul>
+    <h3>Most Popular Parks to Visit</h3>
+    <ul id="most-visited-parks">
+        <li>Great Smoky Mountain Park</li>
+        <li>Grand Canyon National Park</li>
+        <li>Zion National Park</li>
+        <li>Rocky Mountain National Park</li>
+        <li>Yosemite National Park</li>
+        <li>Yellowstone National Park</li>
+    </ul>
+    <button id="yellow-highlight">Last list items</button>
     <a id="toggler" href="#" >Click here to toggle data info.</a>
 <script src="js/jquery-2.2.4.js"></script>
 <script>
@@ -44,15 +69,25 @@
     //WALKTHRU ANSWER:
         $('#toggler').click(function(){
             $('dd').toggleClass('invisible');
-        }))
-        // $('#toggleDD').click(function(){
-        //     e.preventDefault();
-        //     $('dd').toggleClass('invisible');
-        // })
+        }),
+
 
         $('dt').click(function(){
             $(this).next().toggleClass('invisible')
+        }),
+
+        $('#yellow-highlight').click(function(){
+            $('ul li:last-child').css('background-color', 'yellow')
+        }),
+
+        $('h3').click(function(){
+            $(this).next().css('font-weight', 'bold')
+        }),
+
+        $('li').click(function(){
+            $(this).parent().children().first().css('color', 'blue')
         })
+    )
 
 
     //-----WALKTHROUGH ANSWER--
