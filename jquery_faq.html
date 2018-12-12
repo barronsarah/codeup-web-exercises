@@ -7,9 +7,32 @@
         .invisible {
             display: none;
         }
+
+        .frame {
+            height: 3em;
+            width: 4em;
+            border: maroon 4px solid;
+            float: left;
+            margin: 10px;
+        }
+
+        ul {
+            display:none;
+        }
+
+        #register {
+            display: none;
+        }
+
     </style>
 </head>
 <body>
+    <!--JQUERY EFFECTS EXERCISE-->
+    <div id="newsletter">
+        <span>X</span>
+        <h1>"Would you like to sign up for our newsletter?"</h1>
+    </div>
+    <h2 id="register">Register for our site!</h2>
  <!--build a definition list with FAQ's about national parks    -->
     <h2 class="header">NATIONAL PARKS FAQ</h2>
     <dl>
@@ -35,6 +58,8 @@
         <dd class="invisible">The National Park Service was created by an act signed by President Woodrow Wilson on August 25, 1916. Yellowstone National Park was established by an act signed by President Ulysses S. Grant on March 1, 1872, as the nation's first national park. View the National Park System timeline.
         </dd>
     </dl>
+    <a id="toggler" href="#" >Click here to toggle data info.</a>
+
     <h3 id="national-parks-heading">National Parks</h3>
     <ul id="national-parks">
         <li>Arches</li>
@@ -61,12 +86,20 @@
         <li>Yellowstone National Park</li>
     </ul>
     <button id="yellow-highlight">Last list items</button>
-    <a id="toggler" href="#" >Click here to toggle data info.</a>
+
+    <br>
+    <br>
+
+    <!--BONUS TRAVERSE EXERCISE!!-->
+    <div class="frame"></div>
+    <div class="frame"></div>
+    <div class="frame"></div>
+
 <script src="js/jquery-2.2.4.js"></script>
 <script>
     //Update the page with jQuery to add a link that toggles the class invisible on and off for all dd elements.
     $(document).ready(
-    //WALKTHRU ANSWER:
+    //WALKTHRU ANSWER ATTRIBUTES EXERCISE:
         $('#toggler').click(function(){
             $('dd').toggleClass('invisible');
         }),
@@ -75,29 +108,62 @@
         $('dt').click(function(){
             $(this).next().toggleClass('invisible')
         }),
-
+    //WALKTHRU ANSWER FOR TRAVERSE EXERCISE
         $('#yellow-highlight').click(function(){
             $('ul li:last-child').css('background-color', 'yellow')
         }),
+        // --
+        //$('#yellow-highlight').click(function(){
+        //  $('ul').each(function(){
+        //  $(this).children().last().css('background-color','yellow')
+        //      })
+        //   })
+
 
         $('h3').click(function(){
             $(this).next().css('font-weight', 'bold')
         }),
+        // $('h3').click(function(){
+        //  $(this).next().children().each(function(){
+        //      $(this).next().css('font-weight','bold')
+        //          })
+        //      })
+        // can also write it like so and it would work the same:
+        // $('h3').click(function(){
+        //  $(this).next().children().css('font-weight','bold')
+        //      })
+
 
         $('li').click(function(){
             $(this).parent().children().first().css('color', 'blue')
-        })
-    )
-
-
-    //-----WALKTHROUGH ANSWER--
-    // 1. ADD INVISIBLE CLASS TO ALL DD ELEMENTS
-    // 2. ADD LINK TO PAGE
-    // 3. ADD JQUERY LINK TO PAGE- ADD BEFORE PERSONAL JQUERY
-    // 4. in jquery script:
+        }),
+        //walkthru answer:
+        // $('ul').click(function(){
+        // $(this).children().first().css('color', 'blue')
+        //          })
+        //-----WALKTHROUGH ANSWER--
+        // 1. ADD INVISIBLE CLASS TO ALL DD ELEMENTS
+        // 2. ADD LINK TO PAGE
+        // 3. ADD JQUERY LINK TO PAGE- ADD BEFORE PERSONAL JQUERY
+        // 4. in jquery script:
         // $('#toggler').click(function(){
         // $('dd').toggleClass('invisible');
         // })
+
+        //JQUERY EFFECTS- LAST EXERCISE--
+        $('span').click(function(){
+            $('#newsletter').fadeOut(2000)
+        }),
+
+        // $('ul').hide(),
+        $('h3').click(function(){
+            $(this).next().slideToggle(2000)
+        }),
+
+        $('#register').delay(2000).fadeIn(2000)
+
+    )
+
 
 </script>
 </body>
