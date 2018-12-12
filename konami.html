@@ -45,8 +45,8 @@
             var konami='';
             var key = '38384040373937396665';
 
-            $(document).keyup(function(e){
-                konami += ('' + e.keyCode);
+            $(document).keyup(function(event){
+                konami += ('' + event.keyCode);
                 if(konami === key){
                     $('body').css({
                         "background-image": "url('images/forest.jpg')",

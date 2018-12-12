@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Attributes and Css</title>
+    <style>
+        .invisible {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+ <!--build a definition list with FAQ's about national parks    -->
+    <h2 class="header">NATIONAL PARKS FAQ</h2>
+    <dl>
+        <dt>How do I obtain a park entrance pass?</dt>
+        <dd class="invisible">Fewer than one-third of the national parks charge entrance fees. You can obtain park entrance passes by visiting a park site that charges an entrance fee. Entrance fee sites have passes available; we recommend calling a park prior to your visit. (See the park search to locate a specific park.) There are a number of entrance passes available, including park-specific passes as well as passes that offer entrance to more than 2,000 federal recreation sites in addition to the national parks (Annual, Military, Senior, 4th Grade, Access, and Volunteer passes). Learn more about the America the Beautiful - The National Parks and Federal Recreational Lands Pass.</dd>
+
+        <dt>How do I make reservations for camping/lodging in national parks?
+        </dt>
+        <dd class="invisible">For campground reservations, visit Recreation.gov. Not all parks participate in this service; many campgrounds are first come, first served. For more information on specific camping and lodging services offered at the park(s) of your interest, please check specific park websites. You can also learn more about camping in national parks and find a map of parks with camping opportunities.</dd>
+
+        <dt>Can I bring my pet to a national park?
+        </dt>
+        <dd class="invisible">Some national parks welcome pets—in developed areas, on many trails and campgrounds, and in some lodging facilities. Learn more about pets in parks.
+        </dd>
+
+        <dt>What do I need to know about driving off road in national parks?
+        </dt>
+        <dd class="invisible">Before you head out, check with the national parks that you intend to visit. In many national parks, off-road driving is illegal. Where off-road driving is allowed, the National Park Service regulates it.
+        </dd>
+
+        <dt>How old is the National Park System?
+        </dt>
+        <dd class="invisible">The National Park Service was created by an act signed by President Woodrow Wilson on August 25, 1916. Yellowstone National Park was established by an act signed by President Ulysses S. Grant on March 1, 1872, as the nation's first national park. View the National Park System timeline.
+        </dd>
+    </dl>
+
+    <a id="toggler" href="#" >Click here to toggle data info.</a>
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+    //Update the page with jQuery to add a link that toggles the class invisible on and off for all dd elements.
+    $(document).ready(
+    //WALKTHRU ANSWER:
+        $('#toggler').click(function(){
+            $('dd').toggleClass('invisible');
+        }))
+        // $('#toggleDD').click(function(){
+        //     e.preventDefault();
+        //     $('dd').toggleClass('invisible');
+        // })
+
+        $('dt').click(function(){
+            $(this).next().toggleClass('invisible')
+        })
+
+
+    //-----WALKTHROUGH ANSWER--
+    // 1. ADD INVISIBLE CLASS TO ALL DD ELEMENTS
+    // 2. ADD LINK TO PAGE
+    // 3. ADD JQUERY LINK TO PAGE- ADD BEFORE PERSONAL JQUERY
+    // 4. in jquery script:
+        // $('#toggler').click(function(){
+        // $('dd').toggleClass('invisible');
+        // })
+
+</script>
+</body>
+</html>
