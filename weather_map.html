@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Map </title>
+</head>
+<body>
+    <h1>Weather Application</h1>
+    <div id="current"></div>
+    <div id="tomorrow"></div>
+    <div id="third-day"></div>
+
+    <script src="js/jquery-2.2.4.js"></script>
+    <script>
+        $(document).ready(function(){
+
+        $.ajax('https://api.openweathermap.org/data/2.5/weather?q=San+Antonio,us&APPID=b8144fb122e1149359f2ba7f6f167365&units=imperial')
+            .done(function(weather){
+                console.log(weather);
+
+                $('#current').html(weather.name).append('<br>' + 'Current weather is: ' + weather.main.temp + 'º');
+
+            });
+
+        });
+    </script>
+</body>
+</html>

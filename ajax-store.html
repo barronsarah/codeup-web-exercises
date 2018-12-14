@@ -38,15 +38,15 @@
                return html;
            }
 
-            function inventory(){
 
-               function toolInfo(tools) {
-                   var html = '';
-                   for (var i = 0; i < tools.length; i++) {
-                       html += toolTable(tools[i]);
-                   }
-                   return html;
-           }
+            function toolInfo(tools) {
+                var html = '';
+                for (var i = 0; i < tools.length; i++) {
+                    html += toolTable(tools[i]);
+                    }
+                    return html;
+                }
+
 
 
            // TODO: Create an ajax GET request for /data/inventory.json
@@ -55,7 +55,7 @@
                    console.log(tools);
                    $("#insertProducts").append(toolInfo(tools));
                });
-       };
+
 
 
 
