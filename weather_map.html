@@ -6,21 +6,58 @@
 </head>
 <body>
     <h1>Weather Application</h1>
-    <div id="current"></div>
-    <div id="tomorrow"></div>
-    <div id="third-day"></div>
+    <div id="current">Current Weather </div>
+    <br>
+    <h3>Three Day Forecast</h3>
+    <div id="today">Today's Forecast</div>
+    <div id="tomorrow">Tomorrow</div>
+    <div id="third-day">Day After Tomorrow</div>
 
     <script src="js/jquery-2.2.4.js"></script>
     <script>
+        "use strict";
         $(document).ready(function(){
+            function loadTable() {
+                var table = "";
 
-        $.ajax('https://api.openweathermap.org/data/2.5/weather?q=San+Antonio,us&APPID=b8144fb122e1149359f2ba7f6f167365&units=imperial')
-            .done(function(weather){
-                console.log(weather);
+                $.ajax('https://api.openweathermap.org/data/2.5/forecast?q=San+Antonio,us&APPID=b8144fb122e1149359f2ba7f6f167365&units=imperial')
+                    .done(function (weather) {
+                        console.log(weather);
 
-                $('#current').html(weather.name).append('<br>' + 'Current weather is: ' + weather.main.temp + 'º');
+                        $('#current').html(weather.city.name).append('<br>' + 'Current temperature is: ' +                          '<br>' + weather.list[0].main.temp + 'º');
 
-            });
+                        // $('#today').html('Today\'s forecast is: ' + weather.)
+
+
+                        for (var i = 0; i < weather.list.length; i += 8) {
+
+                            // function loadTable(weather) {
+                            table += '<tr>';
+                            table += '<td>' + weather.list[i].main.temp_max + '/' + weather.list[i].main                        .temp_min + '</td>';
+                            table += '</tr><tr>';
+                            table += '<td>' + 'Clouds: ' + weather.list[i].weather[0].description + '</td>';
+                            table += '</tr><tr>';
+                            table += '<td>' + 'Humidity: ' + weather.list[i].main.humidity + '</td>';
+                            table += '</tr><tr>';
+                            table += '<td>' + 'Wind Speed: ' + weather.list[i].wind.speed + '</td>';
+                            table += '</tr><tr>';
+                            table += '<td>' + 'Pressure: ' + weather.list[i].main.pressure + '</td>';
+                            table += '</tr>';
+
+                            // });
+                            // return table;
+
+                            if (i === 0) {
+                                $('#today').append(table);
+                            }
+                        }
+                    });
+
+            };
+            loadTable();
+
+
+
 
         });
     </script>
