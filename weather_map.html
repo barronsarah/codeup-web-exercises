@@ -66,7 +66,6 @@
     </div>
 <!--MAP DIV-->
     <div id="map-canvas"></div>
-    <input id ="searchAddress" type="text" placeholder="Enter a new address"><button id=searchBtn type="submit">Search</button>
 
 <!--SCRIPTS-->
     <!--JQUERY-->
@@ -177,17 +176,17 @@
                 });
 
             });
+    //GOOGLE MAP
     // INIT MAPS ---
             var geocoder = new google.maps.Geocoder();
 
-            var address = { lat: 29.426791,
-                lng: -98.489602};
+            var address = { lat: 29.426791, lng: -98.489602};
 
 
 // Set our map options
             var mapOptions = {
                 // Set the zoom level
-                zoom: 19,
+                zoom: 16,
 
                 // This sets the center of the map at our location
                 center: address,
@@ -206,25 +205,10 @@
             });
 
             marker.setMap(map);
-            // var infowindow = new google.maps.InfoWindow({
-            //     content: 'Sarah\'s favorite restuarant'
-            // });
 
-// Set our address to geocode
-//             var restaurantAddress = "3119 Roosevelt Ave, San Antonio, TX, 78214";
-//
-// --creating a lat/long variable for the restaurant to use in marker:
-//             var nichas = new google.maps.LatLng(29.365830, -98.481742);
-//             var marker = new google.maps.Marker({
-//                 position: nichas,
-//                 map: map
-//             });
-
-
-
-
-            var newAddress = function(){
-                var newAddress = document.getElementById('searchAddress').value;
+//new city search
+          var newAddress = function(){
+                var newAddress = document.getElementById('input-search').value;
                 console.log(newAddress);
 
                 // Geocode our address
@@ -250,7 +234,7 @@
 
             };
 //
-            var search = document.getElementById('searchBtn');
+            var search = document.getElementById('search-button');
 
             search.addEventListener('click', newAddress);
 
