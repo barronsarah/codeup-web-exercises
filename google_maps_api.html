@@ -31,8 +31,9 @@
 // Init geocoder object
             var geocoder = new google.maps.Geocoder();
 
-            var address = { lat:  29.368290,
-                lng: -98.481844};
+            var address = { lat: 29.426791,
+                lng: -98.489602};
+
 
 // Set our map options
             var mapOptions = {
@@ -45,6 +46,17 @@
                 mapTypeID: 'satellite'
             };
 
+            // Render the map
+            var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+//creates marker on map
+            var marker = new google.maps.Marker({
+                position: address,
+                animation: google.maps.Animation.DROP,
+                map: map
+            });
+
+            marker.setMap(map);
             // var infowindow = new google.maps.InfoWindow({
             //     content: 'Sarah\'s favorite restuarant'
             // });
@@ -59,24 +71,27 @@
 //                 map: map
 //             });
 
- // Render the map
-            var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-            var searchedAddress = document.getElementById('searchAddress').value;
-            var marker = new google.mapsMarker({
-                position: searchedAddress,
-                map: map
-            });
+
+
 
             var newAddress = function(){
                 var newAddress = document.getElementById('searchAddress').value;
                 console.log(newAddress);
+
                 // Geocode our address
                 geocoder.geocode({ "address": newAddress }, function(results, status) {
                     // Check for a successful result
                     if (status == google.maps.GeocoderStatus.OK) {
+                        //Rerender the map
+                        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
                         // Recenter the map over the address
                         map.setCenter(results[0].geometry.location);
+
+                        //sets marker on new address
+                        marker.position = results[0].geometry.location;
+
+                        marker.setMap(map);
                     } else {
 
                         // Show an error message with the status if our request fails
@@ -91,7 +106,8 @@
             search.addEventListener('click', newAddress);
 
 
-            marker.setMap(map);
+
+
             //
             // infowindow.open(map, marker);
             //
