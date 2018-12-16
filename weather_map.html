@@ -208,7 +208,7 @@
 // Set our map options
             var mapOptions = {
                 // Set the zoom level
-                zoom: 5,
+                zoom: 14,
 
                 // This sets the center of the map at our location
                 center: address,
@@ -228,7 +228,81 @@
 
             marker.setMap(map);
 
-//new city search
+
+            // click event search for new pin on map
+
+            google.maps.event.addListener(map, "click", function (e) {
+
+                //lat and lng is available in e object
+                var latLng = e.latLng;
+                console.log(latLng);
+
+                //API request
+                $.get('https://api.openweathermap.org/data/2.5/forecast', {
+                    APPID: "b8144fb122e1149359f2ba7f6f167365",
+                    lat: e.latLng.lat,
+                    lon: e.latLng.lng,
+                    units: "imperial"
+                }).done(function (weather) {
+                    console.log(weather);
+
+                    // --- CURRENT WEATHER IN DROPPED PIN  ---
+                    $('#current').html('<h3>' + weather.city.name +'</h3>' + '<br>' + '<img src="http://openweathermap.org/img/w/'+ weather.list[0].weather[0].icon +'.png">' + '<br>' + 'Current temperature is: ' + '<br>' + parseInt(weather.list[0].main.temp) + 'º');
+
+
+                    for (var i = 0; i < weather.list.length; i ++) {
+                        var table = "";
+
+                        // -- BUILD THE TABLE ---
+                        table += '<tr>';table += '<td>' + '<img src="http://openweathermap.org/img/w/'+ weather.list[i].weather[0].icon +'.png">' + '</td>';
+                        table += '</tr><tr>';
+                        table += '<td>' + parseInt(weather.list[i].main.temp_max) + 'º'+ '/' + parseInt (weather.list[i].main.temp_min) + 'º'+ '</td>';
+                        table += '</tr><tr>';
+                        table += '<td>' + '<strong>' + 'Clouds: ' + '</strong>' + weather.list[i].weather[0].description + '</td>';
+                        table += '</tr><tr>';
+                        table += '<td>' + '<strong>' + 'Humidity: ' + '</strong>' + weather.list[i].main.humidity + '%' + '</td>';
+                        table += '</tr><tr>';
+                        table += '<td>' + '<strong>' + 'Wind Speed: ' + '</strong>' + weather.list[i].wind.speed + ' mph' + '</td>';
+                        table += '</tr><tr>';
+                        table += '<td>' + '<strong>' +  'Pressure: ' + '</strong>' + weather.list[i].main.pressure + '</td>';
+                        table += '</tr>';
+
+                        // ------- END OF TABLE CREATION / 3 DAY FORECAST FOR DROPPED PIN---
+
+                        if (i === 0) {
+                            $('#today').html('').append(table);
+                        } else if (i === 8){
+                            $('#tomorrow').html('').append(table);
+                        } else if(i === 16){
+                            $('#third-day').html('').append(table);
+                        }
+                    }
+                });
+
+                // geocoder.geocode({ "address": newAddress }, function(results, status) {
+                //     // Check for a successful result
+                //     if (status == google.maps.GeocoderStatus.OK) {
+                //         //Rerender the map
+                //         var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+                //
+                //         // Recenter the map over the address
+                //         map.setCenter(results[0].geometry.location);
+                //
+                //         //sets marker on new address
+                //
+                //         marker.position = results[0].geometry.location;
+                //
+                //         marker.setMap(map);
+                //     } else {
+                //
+                //         // Show an error message with the status if our request fails
+                //         alert("Geocoding was not successful - STATUS: " + status);
+                //     }
+                // });
+
+            });
+
+            //new city search maps functions
           var newAddress = function(){
                 var newAddress = document.getElementById('input-search').value;
                 console.log(newAddress);
