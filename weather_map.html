@@ -57,7 +57,7 @@
                         <h3>Day 1</h3>
                     </div>
                         <div class="card-body">
-                        <p id="today" class="card-text"></p></div>
+                        <table id="today" class="card-text table"></table></div>
                     </div>
                 </div>
 <!--CARD 2-->
@@ -67,7 +67,7 @@
                         <h3>Day 2</h3>
                     </div>
                     <div class="card-body">
-                    <p id="tomorrow" class="card-text"></p></div>
+                    <table id="tomorrow" class="card-text table"></table></div>
                 </div>
             </div>
 <!-- CARD 3-->
@@ -77,7 +77,7 @@
                         <h3>Day 3</h3>
                     </div>
                     <div class="card-body">
-                    <p id="third-day" class="card-text"></p></div>
+                    <table id="third-day" class="card-text table"></table></div>
                 </div>
             </div>
         </div>
@@ -233,9 +233,20 @@
 
             google.maps.event.addListener(map, "click", function (e) {
 
-                //lat and lng is available in e object
-                var latLng = e.latLng;
-                console.log(latLng);
+
+                placeMarker(e.latLng, map);
+
+
+            function placeMarker(position, map) {
+                //this is supposed to clear all previous pins-- not working--
+                if (marker) { marker.setMap(null)};
+                //--creates new marker on map when clicked
+                var marker = new google.maps.Marker({
+                    position: position,
+                    map: map
+                });
+                map.panTo(position);
+            }
 
                 //API request
                 $.get('https://api.openweathermap.org/data/2.5/forecast', {
