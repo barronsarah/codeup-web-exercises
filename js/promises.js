@@ -107,7 +107,7 @@ const getFirstElement= data => data[0];
 
 function getLastCommit(data) {
   console.group('created_at')
-  console.log(data)
+  console.log(data.created_at)
   console.groupEnd()
   return data.created_at;
 }
