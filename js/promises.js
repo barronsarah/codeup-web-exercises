@@ -65,15 +65,13 @@ const repoPromise = fetch("https://api.github.com/users/barronsarah/repos", {hea
       }
 
       // Examine the text in the response
-      const repoData = response.json().then((repoData)=> {
-        const
-        console.log(repoData);
-      });
+      response.json().then((data)=>
+        console.log(data));
     }
   )
   .catch(function(err) {
     console.log('Fetch Error :-S', err);
   });
 
-// gitHubPromise.then(repoPromise).then(
+gitHubPromise.then(repoPromise);
 
