@@ -2,21 +2,32 @@
 
 // Write a function named wait that accepts a number as a parameter, and returns a promise that resolves after the passed number of milliseconds.
 //
-// function wait(number){
-//   return new Promise((resolve, reject) => {
-//     if (number > 0) {
-//       setTimeout(function () {
-//         console.log("You'll see this after " + number + " seconds!")
-//       },number *1000);
-//       resolve();
-//     } else {
-//       reject(console.log("This rejected!"));
-//     }
-//   });
-// }
+const wait = number => {
+  return new Promise((resolve, reject) => {
+    if (number > 0) {
+      setTimeout(function () {
+        console.log(`You'll see this after ${number} seconds!`)
+      },number *1000);
+      resolve();
+    } else {
+      reject(console.log("This rejected!"));
+    }
+  });
+}
 //
-// wait(2);
-// wait(5);
+// WALTHRU:
+// es5 in milliseconds:
+// function wait(delay) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(resolve, delay)
+//   })
+// }
+// es6 in milliseconds:
+// const wait = delay => new Promise((resolve, reject) => setTimeout(resolve, delay));
+
+
+wait(2);
+wait(5);
 
 //---------------SECOND PART OF EXERCISE ---------
 // -------- DAY 1 ---------
@@ -105,11 +116,24 @@ const parseResponseAsJson = response => {
 
 const getFirstElement= data => data[0];
 
-function getLastCommit(data) {
-  console.group('created_at')
-  console.log(data.created_at)
-  console.groupEnd()
-  return data.created_at;
+
+
+// function getLastCommit(data) {
+//   console.group('created_at')
+//   console.log(data.created_at)
+//   console.groupEnd()
+//   return data.created_at;
+// }
+
+//this filters for only push events for commits only
+function filterNonPushEvents(events){
+  const onlyThePushEvents = []
+  events.forEach(function(event){
+    if(event.type === "PushEvent"){
+      onlyThePushEvents.push(event)
+    }
+  });
+  return onlyThePushEvents;
 }
 
 function logData(data) {
@@ -126,10 +150,24 @@ function fetchJson(url) {
 }
 
 
-fetchJson(url)
-  .then(getFirstElement)
-  .then(getLastCommit)
-  .then(logData);
+function getMostRecentCommitData(username){
+  return fetchJson(url)
+      .then(getFirstElement)
+      // .then(getLastCommit) <-- this only gives back the last event on profile including forking and creating repos/etc..
+      .then(filterNonPushEvents) //this filters for only created at
+      // .then(events => events.filter(event => event.type === 'PushEvent'))
+      .then(pushEvents => pushEvents[0])
+      .then(mostRecentPushEvent => mostRecentPushEvent.created_at)
+      // .then(logData) <-- we don't need this because this only logs the data and does not return data that can be used later if chaining another .then function.
+}
+
+// getMostRecentCommitData('barronsarah');
+
+$('#submit-button').click(function () {
+  let username = $('#username').val();
+  $('#commit-info').text(`The last commit date of ${username} was ${getMostRecentCommitData(username)}.`)
+});
+
 
 
 
