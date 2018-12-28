@@ -109,8 +109,9 @@ const parseResponseAsJson = response => {
   console.group('parseResponseAsJson')
   console.log(response)
   console.groupEnd()
-  const jsonResponse = response.json();
-  return jsonResponse;
+  // const jsonResponse = response.json();
+  // console.log(jsonResponse)
+  return response.json();
 };
 
 
@@ -128,16 +129,17 @@ const getFirstElement= data => data[0];
 //this filters for only push events for commits only
 function filterNonPushEvents(events){
   const onlyThePushEvents = []
-  events.forEach(function(event){
+  $.each(events,function(event){
     if(event.type === "PushEvent"){
       onlyThePushEvents.push(event)
     }
   });
+
   return onlyThePushEvents;
 }
 
 function logData(data) {
-  console.group('logData')
+  console.group('logData');
   console.log(data);
   console.groupEnd();
 }
@@ -150,22 +152,32 @@ function fetchJson(url) {
 }
 
 
-function getMostRecentCommitData(username){
+function getMostRecentCommitDate(username){
   return fetchJson(url)
-      .then(getFirstElement)
+      // .then(getFirstElement)
       // .then(getLastCommit) <-- this only gives back the last event on profile including forking and creating repos/etc..
       .then(filterNonPushEvents) //this filters for only created at
       // .then(events => events.filter(event => event.type === 'PushEvent'))
       .then(pushEvents => pushEvents[0])
       .then(mostRecentPushEvent => mostRecentPushEvent.created_at)
-      // .then(logData) <-- we don't need this because this only logs the data and does not return data that can be used later if chaining another .then function.
+      // .then(logData) //<-- we don't need this because this only logs the data and does not return data that can be used later if chaining another .then function.
 }
+
 
 // getMostRecentCommitData('barronsarah');
 
+// - add an event listener to submit button, when the button is clicked
+//     - grab the value from the input box
+//     - call my function and use the results
+//     - write to the dom
+
 $('#submit-button').click(function () {
   let username = $('#username').val();
-  $('#commit-info').text(`The last commit date of ${username} was ${getMostRecentCommitData(username)}.`)
+  getMostRecentCommitDate(username)
+    .then(commitDate => {
+      const output = document.querySelector('#commit-info');
+      output.innerHTML = `The last commit for ${username} was ${commitDate}`
+    })
 });
 
 
