@@ -88,7 +88,7 @@ wait(5);
 
 // ----THIRD REDO OF EXERCISE -- DAY 2 ---------
 
-const API_TOKEN = '';
+const API_TOKEN = '6400ffcefe0c93acf82c3dcd81c9a01351c0b17d';
 const gitHubUser = 'barronsarah';
 const url = `https://api.github.com/users/${gitHubUser}/events`;
 const fetchOptions = {

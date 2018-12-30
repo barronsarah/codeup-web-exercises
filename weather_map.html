@@ -26,29 +26,43 @@
             text-align: center;
         }
 
+        #weather-header{
+            color: white;
+            text-shadow: 3px, 2px, dimgrey;
+            text-align: center;
+        }
+
+        #three-day-header{
+            color: white;
+            text-align: center;
+            text-shadow: 5px, 3px, 2px, black;
+        }
+
     </style>
 </head>
 <body>
 <!--NAV BAR WITH CITY SEARCH-->
     <nav class="navbar navbar-dark bg-dark">
         <div class="form-row">
-            <div class="col-7">
-                <a class="navbar-brand text-white">Search For Weather</a>
-                <input id="input-search" class="form-control-lg mr-sm-2" type="search" placeholder="Enter city name" aria-label="Search">
+            <div class="col">
+                <a class="navbar-brand text-white ">Search For Weather</a>
             </div>
-            <div class="col-3">
+            <div class="col">
+                <input id="input-search" class="form-control-lg mr-sm-2 ml-15" type="search" placeholder="Enter city name" aria-label="Search">
+            </div>
+            <div class="col text-right">
                     <button id='search-button' class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
             </div>
         </div>
     </nav>
 <!---- DEFAULT CURRENT WEATHER --->
-    <h1>Weather Application</h1>
+    <h1 id="weather-header">Weather Application</h1>
     <div class="container-fluid">
         <div id="current">Current Weather</div>
     </div>
     <br>
 <!------------ 3 DAY FORECAST CARDS -------->
-    <h2>Three Day Forecast</h2>
+    <h2 id="three-day-header">Three Day Forecast</h2>
     <div class="container">
         <div class="row">
             <div class="col-4">
@@ -86,7 +100,7 @@
     <div id="map-canvas"></div>
 
     <footer>
-        Sarah Barron
+        Created by Sarah Barron
     </footer>
 
 <!--SCRIPTS-->
@@ -208,7 +222,7 @@
 // Set our map options
             var mapOptions = {
                 // Set the zoom level
-                zoom: 14,
+                zoom: 9,
 
                 // This sets the center of the map at our location
                 center: address,
@@ -329,8 +343,11 @@
                         // Recenter the map over the address
                         map.setCenter(results[0].geometry.location);
 
-                        //sets marker on new address
-                        marker.position = results[0].geometry.location;
+                        //sets marker on new address -need to clear markers
+                      if (marker) {
+                        clearMarkers();
+                        setMapOnAll(null)}
+                      marker.position = results[0].geometry.location;
 
                         marker.setMap(map);
                     } else {
