@@ -88,9 +88,9 @@ wait(5);
 
 // ----THIRD REDO OF EXERCISE -- DAY 2 ---------
 
-const API_TOKEN = '6400ffcefe0c93acf82c3dcd81c9a01351c0b17d';
-const gitHubUser = 'barronsarah';
-const url = `https://api.github.com/users/${gitHubUser}/events`;
+const API_TOKEN = '';
+const username = 'barronsarah';
+const url = `https://api.github.com/users/${username}/events`;
 const fetchOptions = {
   headers: {'Authorization': `token ${API_TOKEN}`}
 }
@@ -133,11 +133,10 @@ function filterNonPushEvents(events){
     if(event.type === "PushEvent"){
       onlyThePushEvents.push(event)
     }
-  });
-
+  })
   return onlyThePushEvents;
 }
-
+//this is only to log data
 function logData(data) {
   console.group('logData');
   console.log(data);
@@ -154,13 +153,13 @@ function fetchJson(url) {
 
 function getMostRecentCommitDate(username){
   return fetchJson(url)
-      // .then(getFirstElement)
+      .then(getFirstElement)
       // .then(getLastCommit) <-- this only gives back the last event on profile including forking and creating repos/etc..
       .then(filterNonPushEvents) //this filters for only created at
-      // .then(events => events.filter(event => event.type === 'PushEvent'))
+      .then(events => events.filter(event => event.type === 'PushEvent'))
       .then(pushEvents => pushEvents[0])
-      .then(mostRecentPushEvent => mostRecentPushEvent.created_at)
-      // .then(logData) //<-- we don't need this because this only logs the data and does not return data that can be used later if chaining another .then function.
+      .then(mostRecentPushEvent => mostRecentPushEvent)
+      .then(logData) //<-- we don't need this because this only logs the data and does not return data that can be used later if chaining another .then function.
 }
 
 
@@ -171,14 +170,18 @@ function getMostRecentCommitDate(username){
 //     - call my function and use the results
 //     - write to the dom
 
-$('#submit-button').click(function () {
-  let username = $('#username').val();
+$('#submit-button').click(function (event) {
+  event.preventDefault();
+  const username = $('#username').val();
+  console.log(username);
   getMostRecentCommitDate(username)
     .then(commitDate => {
       const output = document.querySelector('#commit-info');
-      output.innerHTML = `The last commit for ${username} was ${commitDate}`
+      output.innerHTML = `The last commit for <u>${username}</u> was ${commitDate}`
     })
 });
+
+
 
 
 

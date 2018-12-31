@@ -47,10 +47,10 @@
             <div class="col">
                 <a class="navbar-brand text-white ">Search For Weather</a>
             </div>
-            <div class="col">
-                <input id="input-search" class="form-control-lg mr-sm-2 ml-15" type="search" placeholder="Enter city name" aria-label="Search">
+            <div class="col form-inline">
+                <input id="input-search" class="form-control mr-sm-2 ml-15" type="search" placeholder="Enter city name" aria-label="Search">
             </div>
-            <div class="col text-right">
+            <div class="col form-inline">
                     <button id='search-button' class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
             </div>
         </div>
@@ -232,13 +232,17 @@
 
             // Render the map
             var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-
+            var markers = [];
 //creates marker on map
-            var marker = new google.maps.Marker({
+            function marker (address) {
+              var marker = new google.maps.Marker({
+
                 position: address,
                 animation: google.maps.Animation.DROP,
                 map: map,
-            });
+              });
+              markers.push(marker)
+            }
 
             marker.setMap(map);
 
@@ -253,7 +257,7 @@
 
             function placeMarker(position, map) {
                 //this is supposed to clear all previous pins-- not working--
-                if (marker) { marker.setMap(null)};
+                if (marker) {setMapOnAll(null);
                 //--creates new marker on map when clicked
                 var marker = new google.maps.Marker({
                     position: position,
@@ -344,9 +348,7 @@
                         map.setCenter(results[0].geometry.location);
 
                         //sets marker on new address -need to clear markers
-                      if (marker) {
-                        clearMarkers();
-                        setMapOnAll(null)}
+                      if (marker) {setMapOnAll(null)}
                       marker.position = results[0].geometry.location;
 
                         marker.setMap(map);
