@@ -89,11 +89,11 @@ wait(5);
 // ----THIRD REDO OF EXERCISE -- DAY 2 ---------
 
 const API_TOKEN = '';
-const username = 'barronsarah';
+let username = 'barronsarah';
 const url = `https://api.github.com/users/${username}/events`;
 const fetchOptions = {
   headers: {'Authorization': `token ${API_TOKEN}`}
-}
+};
 
 const checkResponseForErrors = response => {
   console.group('checkResponseForErrors')
@@ -158,7 +158,7 @@ function getMostRecentCommitDate(username){
       .then(filterNonPushEvents) //this filters for only created at
       .then(events => events.filter(event => event.type === 'PushEvent'))
       .then(pushEvents => pushEvents[0])
-      .then(mostRecentPushEvent => mostRecentPushEvent)
+      .then(mostRecentPushEvent => mostRecentPushEvent.created_at)
       .then(logData) //<-- we don't need this because this only logs the data and does not return data that can be used later if chaining another .then function.
 }
 

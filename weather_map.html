@@ -212,6 +212,7 @@
                 });
 
             });
+
     //GOOGLE MAP
     // INIT MAPS ---
             var geocoder = new google.maps.Geocoder();
@@ -230,41 +231,36 @@
                 mapTypeID: 'satellite'
             };
 
-            // Render the map
+// Render the map
             var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-            var markers = [];
-//creates marker on map
-            function marker (address) {
-              var marker = new google.maps.Marker({
 
+//creates marker on map
+            var marker = new google.maps.Marker({
                 position: address,
                 animation: google.maps.Animation.DROP,
                 map: map,
-              });
-              markers.push(marker)
-            }
+            });
 
             marker.setMap(map);
 
+          function clearMarker(){
+            setMap(null);
+          };
 
             // click event search for new pin on map
+          function placeMarker(position, map) {
+           // clearMarker();
+
+            new google.maps.Marker({
+              position: position,
+              map: map
+            });
+            map.panTo(position);
+          }
+
 
             google.maps.event.addListener(map, "click", function (e) {
-
-
                 placeMarker(e.latLng, map);
-
-
-            function placeMarker(position, map) {
-                //this is supposed to clear all previous pins-- not working--
-                if (marker) {setMapOnAll(null);
-                //--creates new marker on map when clicked
-                var marker = new google.maps.Marker({
-                    position: position,
-                    map: map
-                });
-                map.panTo(position);
-            }
 
                 //API request
                 $.get('https://api.openweathermap.org/data/2.5/forecast', {
@@ -307,31 +303,10 @@
                         }
                     }
                 });
-
-                // geocoder.geocode({ "address": newAddress }, function(results, status) {
-                //     // Check for a successful result
-                //     if (status == google.maps.GeocoderStatus.OK) {
-                //         //Rerender the map
-                //         var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-                //
-                //         // Recenter the map over the address
-                //         map.setCenter(results[0].geometry.location);
-                //
-                //         //sets marker on new address
-                //
-                //         marker.position = results[0].geometry.location;
-                //
-                //         marker.setMap(map);
-                //     } else {
-                //
-                //         // Show an error message with the status if our request fails
-                //         alert("Geocoding was not successful - STATUS: " + status);
-                //     }
-                // });
-
             });
 
-            //new city search maps functions
+
+   //new city search maps functions
           var newAddress = function(){
                 var newAddress = document.getElementById('input-search').value;
                 console.log(newAddress);
